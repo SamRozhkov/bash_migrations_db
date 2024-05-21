@@ -1,0 +1,5 @@
+DB_SOURCE=192.168.0.24
+DB_USER=gpadmin
+DB_PASSWORD=gpadmin
+DB_DATABASE=dwh
+MIGRATION_PATH=./migrations
