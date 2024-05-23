@@ -2,15 +2,15 @@
 set -euo pipefail
 source ./env
 global_id=$(uuidgen) #guid транзакции
-execute_dt=$(date) #дата и время запуска скрипта
+execute_dt=$(date)  #дата и время запуска скрипта
 
 function message(){
     echo "$1"
 }
 
 function run_sql(){
-    result=$(PGPASSWORD=$DB_PASSWORD psql -t -h $DB_SOURCE -U $DB_USER -d $DB_DATABASE -c "$1") 2>/dev/null
-    echoco $result
+    result=$(PGPASSWORD=$GP_PASSWORD psql -t -h $GP_SOURCE -U $GP_USER -d $GP_DATABASE -c "$1") 2>/dev/null
+    echo $result
 }
 
 #Выполняет проверку подключения к базе
@@ -63,7 +63,12 @@ function execute_migration(){
 check_conn
 init
 
-files=$(find $MIGRATION_PATH -type f -name '*.sql' )
+function find_files(){
+    files=$(find $1 -type f -name '*.sql' )
+    echo "$files"
+}
+
+files=$(find_files $MIGRATION_PATH_ADB)
 
 while IFS= read -r file; do
      hash=$(md5 -q $file)

@@ -1,5 +1,22 @@
-DB_SOURCE=192.168.0.24
-DB_USER=gpadmin
-DB_PASSWORD=gpadmin
-DB_DATABASE=dwh
-MIGRATION_PATH=./migrations
+##### GP config #####
+GP_SOURCE=192.168.0.23
+GP_USER=gpadmin
+GP_PASSWORD=gpadmin
+GP_DATABASE=dwh
+
+##### PG config #####
+PG_SOURCE=192.168.0.231
+PG_USER=gpadmin
+PG_PASSWORD=gpadmin
+PG_DATABASE=dwh
+
+##### ADQM #####
+ADQM_SOURCE=192.168.0.231
+ADQM_USER=gpadmin
+ADQM_PASSWORD=gpadmin
+ADQM_DATABASE=dwh
+
+##### MIGRATION PATHS
+MIGRATION_PATH_ADB=./migrations/ADB
+MIGRATION_PATH_PG=./migrations/PG
+MIGRATION_PATH_ADQM=./migrations/ADQM
