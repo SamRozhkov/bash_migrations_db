@@ -79,3 +79,7 @@ while IFS= read -r file; do
 done <<< "$files"
 
 execute_migration $global_id
+
+
+#TODO: execute ADQM query
+# echo 'SELECT 3' | curl -H 'X-ClickHouse-User: aepk-d-sprozhkov' -H 'X-ClickHouse-Key: ' 'http://3tkhd-s-adqm01:8123/' -d @-
